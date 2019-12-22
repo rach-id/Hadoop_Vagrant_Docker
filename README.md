@@ -24,9 +24,11 @@ Open /etc/hosts and remove the first master entery in it, then
 
 `/usr/local/hadoop/sbin/start-all.sh`
 
+Open http://172.20.10.4:9870 , http://172.20.10.4:8088 from your host to check if its working. Or use the command `jps` in all nodes to see which services are running.
 
 # The resulting architecture:
 
 ![architecture](https://i.ibb.co/7nPsLCy/cluster-picture.png)
+
 
 ### Have Fun :D
