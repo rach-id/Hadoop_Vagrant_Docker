@@ -1,0 +1,8 @@
+# Run these on the master after starting the slaves
+
+scp /root/.ssh/id_rsa.pub slave1:/root/.ssh/authorized_keys
+scp /root/.ssh/id_rsa.pub slave2:/root/.ssh/authorized_keys
+
+hadoop namenode -format
+
+/usr/local/hadoop/sbin/start-all.sh

@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  master:
+    container_name: "master"
+    hostname: master
+    build: ./hadoop-master
+    networks:
+      app_net:
+        ipv4_address: 172.20.10.04
+    ports:
+      - "9870:9870"
+      - "8088:8088"
+      - "19888:19888"
+      - "8188:8188"
+  slave1:
+    container_name: "slave1"
+    hostname: slave1
+    build: ./hadoop-slave
+    networks:
+      app_net:
+        ipv4_address: 172.20.10.05
+    ports:
+      - "9901:9864"
+      - "8041:8042"
+  slave2:
+    container_name: "slave2"
+    hostname: slave2
+    build: ./hadoop-slave
+    networks:
+      app_net:
+        ipv4_address: 172.20.10.06
+    ports:
+      - "9902:9864"
+      - "8042:8042"
+networks:
+  app_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      -
+        subnet: 172.20.10.0/24
